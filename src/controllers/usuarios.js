@@ -16,7 +16,7 @@ function addUsuario(req,res){
         guerra: req.body.guerra,
         idtm: req.body.idtm,
         email: req.body.email,
-        password: req.body.passwords
+        password: req.body.password
     }).then( (result) => res.json(result))
 };
 
