@@ -10,22 +10,50 @@ export default db.define('usuario', {
     },
     nome: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notNull: {
+              msg: 'Please enter your name'
+            }
+          }
     },
-    guerra: {
+    grad: {
         type: Sequelize.STRING,
         allowNull: false
     },
     idtm: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notNull: {
+              msg: 'Please enter your name'
+            }
+          },
+        unique: true // Aqui voce indica que o valor nao ser repetido
     },
     email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notNull: {
+              msg: 'Please enter your name'
+            }
+          },
+        unique: true // Aqui voce indica que o valor nao ser repetido
     },
     password: {
         type: Sequelize.STRING,
-        allowNull: false
-    },
-})
+        allowNull: false,
+        validate: {
+            notNull: {
+              msg: 'Please enter your name'
+            }
+          }
+        //colocar informacoes do password cripitografada.
+       // set(value) {
+            // rmazenar senhas em texto simples no banco de dados é terrível.
+            // Hashing Fazer hash do valor com uma função de hash criptográfica apropriada é melhor.
+          //  this.setDataValue('password', hash(value));
+        //}
+    }
+});
